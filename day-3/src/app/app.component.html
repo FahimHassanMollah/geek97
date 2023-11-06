@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>{{title}}</h1>
+  <div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+      <form (ngSubmit)="login()" autocomplete="off"  [formGroup]="loginForm" class="form" >
+        <input formControlName="email" class="form-control" type="text" type="text">
+        <p *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+          email is required
+        </p>
+        <input formControlName="password" class="form-control" type="password" type="text">
+        <p *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          password is required
+        </p>
+        <button type="submit">login</button>
+      </form>
+    </div>
+    <div class="col-md-8">
+
+      <!-- <pre> <h5>{{loginForm | json}}</h5></pre> -->
+    </div>
+  </div>
+</div>
